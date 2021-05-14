@@ -5,4 +5,10 @@ let divBackground = ()=>{
     return  picZeldaFood
 }
 
-export default divBackground
+let textTagMainDish = ()=>{
+    const mainDishText = document.createElement('div')
+    mainDishText.innerHTML = 'Main Dish'
+    return mainDishText
+}
+
+export  {divBackground, textTagMainDish}

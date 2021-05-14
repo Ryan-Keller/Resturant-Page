@@ -1,7 +1,7 @@
 
 import { fromPairs } from 'lodash'
-import divBackground from './maindish'
-import {supBitchesDiv, sidesPicExsist} from './sides'
+import {divBackground, textTagMainDish} from './maindish'
+import {supBitchesDiv, sidesPicExsist, textTagDesserts} from './sides'
 
 let theDiv = document.getElementById('content')
 
@@ -16,12 +16,17 @@ let buttonBoxDiv = document.getElementById('buttonBox')
 
 let ranInstanceOfDivBackground = divBackground()
 let ranInstanceofSidePicExsist = sidesPicExsist()
+let ranInstanceOfTextTagMainDish = textTagMainDish()
+let ranInstanceOfTextTagDesserts = textTagDesserts()
 
 let createTabButtonMianDishes = () => {
+
     let button = document.createElement('button')
     button.classList.add('tabDivButton')
     button.innerText = "Main Dishes"
     button.addEventListener(('click'), (e) => {
+        theDiv.appendChild(ranInstanceOfTextTagMainDish)
+        theDiv.removeChild(ranInstanceOfTextTagDesserts)
         theDiv.appendChild(ranInstanceofSidePicExsist)
         theDiv.removeChild(ranInstanceOfDivBackground)
     })
@@ -29,10 +34,13 @@ let createTabButtonMianDishes = () => {
 }
 
 let createTabButtonDessert = () => {
+
     let button = document.createElement('button')
     button.classList.add('tabDivButton')
     button.innerText = "Desserts"
     button.addEventListener(('click'), (e) => {
+        theDiv.appendChild(ranInstanceOfTextTagDesserts)
+        theDiv.removeChild(ranInstanceOfTextTagMainDish)
         theDiv.appendChild(ranInstanceOfDivBackground)
         theDiv.removeChild(ranInstanceofSidePicExsist)
     })
