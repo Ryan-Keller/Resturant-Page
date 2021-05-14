@@ -15,18 +15,31 @@ theDiv.appendChild(buttonBox())
 let buttonBoxDiv = document.getElementById('buttonBox')
 
 
-let createTabDiv = () => {
-    let tabDiv = document.createElement('button')
-    tabDiv.classList.add('tabDiv')
-    tabDiv.innerText = "hola"
-    return tabDiv
+let createTabButtonMianDishes = () => {
+    let button = document.createElement('button')
+    button.classList.add('tabDivButton')
+    button.innerText = "Main Dishes"
+    button.addEventListener(('click'), (e) => {
+        theDiv.appendChild(sidesPicExsist())
+    })
+    return button
 }
-buttonBoxDiv.appendChild(createTabDiv())
+
+let createTabButtonDessert = () => {
+    let button = document.createElement('button')
+    button.classList.add('tabDivButton')
+    button.innerText = "Desserts"
+    button.addEventListener(('click'), (e) => {
+        theDiv.appendChild(divBackground())
+    })
+    return button
+}
+
+buttonBoxDiv.appendChild(createTabButtonMianDishes())
+buttonBoxDiv.appendChild(createTabButtonDessert())
 
 
 
-theDiv.appendChild(divBackground())
+
 
 theDiv.appendChild(supBitchesDiv())
-
-theDiv.appendChild(sidesPicExsist())
