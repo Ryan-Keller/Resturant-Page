@@ -14,13 +14,16 @@ theDiv.appendChild(buttonBox())
 
 let buttonBoxDiv = document.getElementById('buttonBox')
 
+let ranInstanceOfDivBackground = divBackground()
+let ranInstanceofSidePicExsist = sidesPicExsist()
 
 let createTabButtonMianDishes = () => {
     let button = document.createElement('button')
     button.classList.add('tabDivButton')
     button.innerText = "Main Dishes"
     button.addEventListener(('click'), (e) => {
-        theDiv.appendChild(sidesPicExsist())
+        theDiv.appendChild(ranInstanceofSidePicExsist)
+        theDiv.removeChild(ranInstanceOfDivBackground)
     })
     return button
 }
@@ -30,7 +33,8 @@ let createTabButtonDessert = () => {
     button.classList.add('tabDivButton')
     button.innerText = "Desserts"
     button.addEventListener(('click'), (e) => {
-        theDiv.appendChild(divBackground())
+        theDiv.appendChild(ranInstanceOfDivBackground)
+        theDiv.removeChild(ranInstanceofSidePicExsist)
     })
     return button
 }
